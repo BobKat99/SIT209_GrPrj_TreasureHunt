@@ -10,7 +10,9 @@
   "author": "Hannoying",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.6.12",
+    "ol3-my-location": "github:itjope/ol3-my-location"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
