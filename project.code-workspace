@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "Player-side\\API"
+		},
+		{
+			"path": "Player-side\\Web"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}
