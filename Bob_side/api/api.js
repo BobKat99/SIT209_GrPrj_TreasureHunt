@@ -1,5 +1,7 @@
 const express = require('express');
 const Store = require('./models/store');
+const Quest = require('./models/quest');
+const User = require('./models/user');
 const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 5000;
@@ -18,8 +20,6 @@ app.use(bodyParser.json())
 app.use(express.static(`${__dirname}/public`));
 
 app.listen(port, () => {
- console.log(`listening on port ${port}`);
-    console.log(`listening on port ${port}`); 
  console.log(`listening on port ${port}`);
 });
 
@@ -58,8 +58,17 @@ app.post('/api/registration', (req, res) => {
     }
         else return res.send('Store already existed')
     }); 
-    
-      
 });
+
+app.get('/api/quest', (req, res) => {
+    Quest.find({}, (err, list) => {
+        // const {list} = list;
+        return err
+        ? res.send(err)
+        : res.send(list);
+    });
+});
+
+// app.post('/api/:user/')
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });

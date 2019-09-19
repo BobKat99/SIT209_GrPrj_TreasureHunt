@@ -25,6 +25,10 @@ $('#package').on('click', function() {
     location.href = '/package'
 });
 
+$('Markers').on('click', function() {  
+    location.href = '/virtual_items'
+    });
+
 $('#register').on('click', function() {
     const name = $('#username').val();
     const password = $('#password').val();
