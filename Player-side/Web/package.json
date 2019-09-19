@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "deploy": "git subtree push --prefix web heroku master"
   },
   "author": "Tung",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "lodash": "^4.17.15"
   },
   "devDependencies": {
+    "heroku": "^7.30.0",
     "nodemon": "^1.19.2"
   }
 }
