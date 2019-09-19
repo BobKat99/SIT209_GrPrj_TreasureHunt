@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "Player-side\\Web"
+		},
+		{
+			"path": "Bob_side"
 		}
 	],
 	"settings": {
