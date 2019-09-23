@@ -63,7 +63,7 @@ app.post('/api/registration', (req, res) => {
     }); 
 });
 
-app.get('/api/stores', (req, res) => {
+app.get('/api/listStores', (req, res) => {
     Store.find({}, (err, stores) => {
         return err
         ? res.send(err)

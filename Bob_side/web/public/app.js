@@ -5,16 +5,6 @@ const API_URL = 'http://localhost:5000/api';
 
 const stores = JSON.parse(localStorage.getItem('stores')) || [];
 
-// stores.forEach(function(store) {
-//     $('#stores tbody').append(`
-//         <tr>
-//             <td>${store.name}</td>
-//             <td>${store.password}</td>
-//             <td>${store.position}</td>
-//         </tr>`
-//     );
-// });
-
 $('#progress').on('click', function() {  
     location.href = '/progress'
 });

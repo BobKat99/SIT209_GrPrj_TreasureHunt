@@ -1,13 +1,12 @@
-// $('#footer').load('footer.html');
+$('#footer').load('footer.html');
 const API_URL = 'http://localhost:5000/api'; 
 
-const stores = JSON.parse(localStorage.getItem('stores')) || [];
-$.get(`${API_URL}/stores`) 
+$.get(`${API_URL}/listStores`) 
 .then(response => {  
 
     map = new OpenLayers.Map("mapdiv");
     map.addLayer(new OpenLayers.Layer.OSM());
-    var lonLat = new OpenLayers.LonLat( response[1].lon, response[1].lat)
+    var lonLat = new OpenLayers.LonLat( response[0].lon, response[0].lat)
           .transform(
             new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
             map.getProjectionObject() // to Spherical Mercator Projection
