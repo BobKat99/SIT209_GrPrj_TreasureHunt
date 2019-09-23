@@ -33,11 +33,14 @@ $('#register').on('click', function() {
     const name = $('#username').val();
     const password = $('#password').val();
     const confirmPassword = $('#confirm-password').val();
+    const lat = $('#lat').val();
+    const lon = $('#lon').val();
+    const instr = $('#instr').val();
     const exists = stores.find(store => store.name === name);
 
     if (exists == undefined && password === confirmPassword)
     {
-        $.post(`${API_URL}/registration`, { name, password })
+        $.post(`${API_URL}/registration`, { name, password, lat, lon, instr })
         .then((response) =>{
         if (response.success) {
             location.href = '/login';

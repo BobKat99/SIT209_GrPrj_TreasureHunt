@@ -1,7 +1,7 @@
 const express = require('express');
 const Store = require('./models/store');
-const Quest = require('./models/quest');
-const User = require('./models/user');
+// const Quest = require('./models/quest');
+// const User = require('./models/user');
 const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 5000;
@@ -37,14 +37,17 @@ app.post('/api/authenticate', (req, res) => {
 });
 
 app.post('/api/registration', (req, res) => {  
-    const { name, password} = req.body;
-    Store.findOne({name, password}, (err, stores) => {
+    const { name, password, lat, lon, instr} = req.body;
+    Store.findOne({name, password, lat, lon, instr}, (err, stores) => {
         if (err == true) return res.send(err);
         else if (stores == undefined) 
         {
         const newStore = new Store({
             name,
-            password
+            password,
+            lat,
+            lon,
+            instr
            });
     
         newStore.save(err => {
@@ -60,15 +63,12 @@ app.post('/api/registration', (req, res) => {
     }); 
 });
 
-app.get('/api/quest', (req, res) => {
-    Quest.find({}, (err, list) => {
-        // const {list} = list;
+app.get('/api/stores', (req, res) => {
+    Store.find({}, (err, stores) => {
         return err
         ? res.send(err)
-        : res.send(list);
+        : res.send(stores);
     });
 });
-
-// app.post('/api/:user/')
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
